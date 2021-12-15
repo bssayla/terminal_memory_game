@@ -37,8 +37,12 @@ def main()->None:
     #print the sulution for 10 secs
     print("focus and remember the numbers")
     for i in range(0,12,3):
-        print(f"\r{(i//3)+1} line elements are : {guesses[i:i+3]}",end="")
+        print(f"{(i//3)+1} line elements are : {guesses[i:i+3]}")
+        sys.stdout.write("\033[F")
         time.sleep(3)
+    else:
+        sys.stdout.write("\033[K")
+        print(" ")
     print()
     coundown()
 
