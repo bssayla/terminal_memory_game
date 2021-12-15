@@ -1,6 +1,7 @@
 
 import random
 import time
+import sys
 
 
 def print_table(guesses:list,guessed_or_not:dict)->None:
@@ -19,10 +20,12 @@ def print_table(guesses:list,guessed_or_not:dict)->None:
 
 def coundown()->None:
     for i in range(9,-1,-1):
-        print(f"\rstill {i%10} secondes for begin",end="")
+        print(f"still {i%10} secondes for begin")
+        sys.stdout.write("\033[F")
         time.sleep(1)
-    print()
-    print("let' GOOOO")
+    else:
+        sys.stdout.write("\033[K")
+        print("let' GOOOO")
         
 
 
